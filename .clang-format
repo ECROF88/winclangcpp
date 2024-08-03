@@ -1,0 +1,12 @@
+BasedOnStyle: Google
+IndentWidth: 2
+ColumnLimit: 90
+BreakBeforeBraces: Custom
+
+
+AccessModifierOffset: -2
+BraceWrapping:
+  AfterEnum: true
+  SplitEmptyFunction: false
+  AfterFunction: true
+  AfterClass: true

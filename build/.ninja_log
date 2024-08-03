@@ -1,0 +1,13 @@
+# ninja log v6
+1128	1242	7443915786501887	test.exe	cd47341aaf4b2c56
+276	1127	7443915777989847	CMakeFiles/MyExecutable.dir/1.cpp.obj	350e6ea0dfaed8e0
+224	263	7443915777466535	CMakeFiles/MyExecutable.dir/1.cpp.obj.modmap	2fadbf5887081931
+224	263	7443915777466535	C:/Users/D1mo/Desktop/clangdtest/build/CMakeFiles/MyExecutable.dir/CXXModules.json	2fadbf5887081931
+224	263	7443915777466535	CMakeFiles/MyExecutable.dir/CXX.dd	2fadbf5887081931
+34	223	7443915775566552	CMakeFiles/MyExecutable.dir/1.cpp.obj.ddi	ee9f17f2ab3ba0bb
+32	234	7443916359772276	CMakeFiles/MyExecutable.dir/1.cpp.obj.ddi	ee9f17f2ab3ba0bb
+234	274	7443916361798164	CMakeFiles/MyExecutable.dir/CXX.dd	2fadbf5887081931
+234	274	7443916361798164	C:/Users/D1mo/Desktop/clangdtest/build/CMakeFiles/MyExecutable.dir/CXXModules.json	2fadbf5887081931
+234	274	7443916361798164	CMakeFiles/MyExecutable.dir/1.cpp.obj.modmap	2fadbf5887081931
+288	1088	7443916362331294	CMakeFiles/MyExecutable.dir/1.cpp.obj	350e6ea0dfaed8e0
+1088	1195	7443916370329705	test.exe	cd47341aaf4b2c56
