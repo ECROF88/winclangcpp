@@ -48,5 +48,163 @@
     "xstring": "cpp",
     "xtr1common": "cpp",
     "xutility": "cpp"
-  }
+  },
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "editor.mouseWheelZoom": true,
+  "editor.formatOnSave": true,
+  "C_Cpp.default.cppStandard": "c++23",
+  "security.workspace.trust.untrustedFiles": "open",
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.tabSize": 4
+  },
+  "markdown-pdf.executablePath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "editor.fontFamily": "CodeNewRoman Nerd Font Mono  , 思源黑体 CN",
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "cmake.generator": "Ninja",
+  "cmake.configureSettings": {
+    "CMAKE_MAKE_PROGRAM": "C:/Ninja.exe",
+  },
+  "cmake.showConfigureWithDebuggerNotification": false,
+  "C_Cpp.default.cStandard": "c23",
+  "cloudcode.duetAI.project": "gen-lang-client-0030290103",
+  "C_Cpp.clang_format_style": "Google",
+  "editor.tabSize": 2,
+  "cmake.options.statusBarVisibility": "visible",
+  "github.copilot.advanced": {},
+  "marscode.enableCodelens": {
+    "enableInlineUnitTest": false,
+    "enableInlineDocumentation": false,
+    "enableInlineExplain": false
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "workbench.experimental.enableNewProfilesUI": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "zig": "zig run",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "php": "php",
+    "python": "python -u",
+    "perl": "perl",
+    "perl6": "perl6",
+    "ruby": "ruby",
+    "go": "go run",
+    "lua": "lua",
+    "groovy": "groovy",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "bat": "cmd /c",
+    "shellscript": "bash",
+    "fsharp": "fsi",
+    "csharp": "scriptcs",
+    "vbscript": "cscript //Nologo",
+    "typescript": "ts-node",
+    "coffeescript": "coffee",
+    "scala": "scala",
+    "swift": "swift",
+    "julia": "julia",
+    "crystal": "crystal",
+    "ocaml": "ocaml",
+    "r": "Rscript",
+    "applescript": "osascript",
+    "clojure": "lein exec",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "racket": "racket",
+    "scheme": "csi -script",
+    "ahk": "autohotkey",
+    "autoit": "autoit3",
+    "dart": "dart",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "haskell": "runghc",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "lisp": "sbcl --script",
+    "kit": "kitc --run",
+    "v": "v run",
+    "sass": "sass --style expanded",
+    "scss": "scss --style expanded",
+    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "sml": "cd $dir && sml $fileName",
+    "mojo": "mojo run",
+    "erlang": "escript",
+    "spwn": "spwn build",
+    "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+    "gleam": "gleam run -m $fileNameWithoutExt"
+  },
+  "editor.hover.delay": 80,
+  "editor.quickSuggestionsDelay": 100,
+  "C_Cpp.intelliSenseUpdateDelay": 1000,
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "terminal.integrated.profiles.windows": {
+    "MINGW64 / MSYS2": {
+      "path": "C:/msys64/msys2_shell.cmd",
+      "args": [
+        "-defterm",
+        "-here",
+        "-no-start",
+        "-mingw64"
+      ],
+      "icon": "terminal-bash",
+      "color": "terminal.ansiCyan",
+      "overrideName": true
+    }
+  },
+  "cmake.additionalCompilerSearchDirs": [
+    "C:/msys64/clang64/bin",
+    "C:/msys64/mingw64/bin",
+  ],
+  "clangd.detectExtensionConflicts": true,
+  // 查找的头文件路径，每一项前缀 -I
+  "clangd.fallbackFlags": [
+    "-I${workspaceFolder}/include",
+    "-I${workspaceFolder}"
+  ],
+  "clangd.arguments": [
+    // "--compile-commands-dir=${workspaceFolder}/out",
+    // 在后台自动分析文件（基于complie_commands)
+    "--background-index",
+    // 标记compelie_commands.json文件的目录位置
+    "--compile-commands-dir=out",
+    // 同时开启的任务数量
+    "-j=12",
+    // 全局补全（会自动补充头文件）
+    "--all-scopes-completion",
+    // 更详细的补全内容
+    "--completion-style=detailed",
+    // Include what you use
+    "--header-insertion=iwyu",
+    // pch优化的位置 disk memory
+    "--pch-storage=memory",
+    "--cross-file-rename",
+    "--enable-config",
+    // clang-format style to apply by default when no .clang-format file is found
+    "--fallback-style=Google",
+    "--pretty",
+    "--clang-tidy",
+    "--query-driver=clang++",
+  ],
+  "C_Cpp.codeAnalysis.updateDelay": 1000,
+  "terminal.integrated.defaultProfile.windows": "MINGW64 / MSYS2",
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/**",
+    "C:/msys64/mingw64/include/c++/14.2.0/**",
+    "C:/msys64/mingw64/include/**",
+  ],
+  "clangd.path": "clangd",
 }
