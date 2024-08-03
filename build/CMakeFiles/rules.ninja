@@ -72,7 +72,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\msys64\mingw64\bin\cmake.exe --regenerate-during-build -SC:\Users\D1mo\Desktop\clangdtest -BC:\Users\D1mo\Desktop\clangdtest\build
+  command = C:\msys64\mingw64\bin\cmake.exe --regenerate-during-build -SC:\Users\D1mo\Desktop\winclangcpp -BC:\Users\D1mo\Desktop\winclangcpp\build
   description = Re-running CMake...
   generator = 1
 

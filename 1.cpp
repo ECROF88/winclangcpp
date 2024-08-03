@@ -1,15 +1,14 @@
-// Creator:  0000
-#include <iostream>
-using namespace std;
-auto main() -> int
-{
-  const int MY_CONSTANT = 111000;
-  int anotherVariableName = MY_CONSTANT;
-  std::cout << anotherVariableName << std::endl;
+// npoTuymep
 
-  std::cout << __cplusplus;
-  if (1 < 2) {
-    std::cout << 1;
-  }
-  return 0;
+#include <iostream>
+
+int main()
+{
+  const int len1 = 5;
+  constexpr int len2 = 10;
+  int arr1[len1] = {1, 2, 3, 4, 5};
+  int arr2[len2] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  std::cout << "arr1: index 1 = " << arr1[1] << std::endl;
+  std::cout << "arr2: index 1 = " << arr2[1] << std::endl;
 }

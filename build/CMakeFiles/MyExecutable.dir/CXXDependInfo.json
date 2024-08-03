@@ -5,10 +5,10 @@
 	"compiler-simulate-id" : "",
 	"config" : "",
 	"cxx-modules" : {},
-	"dir-cur-bld" : "C:/Users/D1mo/Desktop/clangdtest/build",
-	"dir-cur-src" : "C:/Users/D1mo/Desktop/clangdtest",
-	"dir-top-bld" : "C:/Users/D1mo/Desktop/clangdtest/build",
-	"dir-top-src" : "C:/Users/D1mo/Desktop/clangdtest",
+	"dir-cur-bld" : "C:/Users/D1mo/Desktop/winclangcpp/build",
+	"dir-cur-src" : "C:/Users/D1mo/Desktop/winclangcpp",
+	"dir-top-bld" : "C:/Users/D1mo/Desktop/winclangcpp/build",
+	"dir-top-src" : "C:/Users/D1mo/Desktop/winclangcpp",
 	"exports" : [],
 	"forward-modules-from-target-dirs" : [],
 	"include-dirs" : 
@@ -17,5 +17,5 @@
 	],
 	"language" : "CXX",
 	"linked-target-dirs" : [],
-	"module-dir" : "C:/Users/D1mo/Desktop/clangdtest/build/CMakeFiles/MyExecutable.dir"
+	"module-dir" : "C:/Users/D1mo/Desktop/winclangcpp/build/CMakeFiles/MyExecutable.dir"
 }

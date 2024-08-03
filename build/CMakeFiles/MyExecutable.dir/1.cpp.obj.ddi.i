@@ -1,7 +1,8 @@
-# 0 "C:/Users/D1mo/Desktop/clangdtest/1.cpp"
+# 0 "C:/Users/D1mo/Desktop/winclangcpp/1.cpp"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "C:/Users/D1mo/Desktop/clangdtest/1.cpp"
+# 1 "C:/Users/D1mo/Desktop/winclangcpp/1.cpp"
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/iostream" 1 3
 # 36 "C:/msys64/mingw64/include/c++/14.2.0/iostream" 3
@@ -67111,19 +67112,17 @@ namespace std
 # 85 "C:/msys64/mingw64/include/c++/14.2.0/iostream" 3
 
 }
-# 3 "C:/Users/D1mo/Desktop/clangdtest/1.cpp" 2
+# 4 "C:/Users/D1mo/Desktop/winclangcpp/1.cpp" 2
 
-# 3 "C:/Users/D1mo/Desktop/clangdtest/1.cpp"
-using namespace std;
-auto main() -> int
+
+# 5 "C:/Users/D1mo/Desktop/winclangcpp/1.cpp"
+int main()
 {
-  const int MY_CONSTANT = 111000;
-  int anotherVariableName = MY_CONSTANT;
-  std::cout << anotherVariableName << std::endl;
+  const int len1 = 5;
+  constexpr int len2 = 10;
+  int arr1[len1] = {1, 2, 3, 4, 5};
+  int arr2[len2] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-  std::cout << 202302L;
-  if (1 < 2) {
-    std::cout << 1;
-  }
-  return 0;
+  std::cout << "arr1: index 1 = " << arr1[1] << std::endl;
+  std::cout << "arr2: index 1 = " << arr2[1] << std::endl;
 }

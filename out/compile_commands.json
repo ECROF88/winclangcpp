@@ -1,8 +1,8 @@
 [
 {
-  "directory": "C:/Users/D1mo/Desktop/clangdtest/out",
-  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -isystem C:/Users/D1mo/Desktop/clangdtest/out -g -std=c++23 @CMakeFiles\\MyExecutable.dir\\1.cpp.obj.modmap -o CMakeFiles\\MyExecutable.dir\\1.cpp.obj -c C:\\Users\\D1mo\\Desktop\\clangdtest\\1.cpp",
-  "file": "C:\\Users\\D1mo\\Desktop\\clangdtest\\1.cpp",
+  "directory": "C:/Users/D1mo/Desktop/winclangcpp/out",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -isystem C:/Users/D1mo/Desktop/winclangcpp/out -g -std=c++23 @CMakeFiles\\MyExecutable.dir\\1.cpp.obj.modmap -o CMakeFiles\\MyExecutable.dir\\1.cpp.obj -c C:\\Users\\D1mo\\Desktop\\winclangcpp\\1.cpp",
+  "file": "C:\\Users\\D1mo\\Desktop\\winclangcpp\\1.cpp",
   "output": "CMakeFiles\\MyExecutable.dir\\1.cpp.obj"
 }
 ]
