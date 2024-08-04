@@ -176,11 +176,10 @@
     "-I${workspaceFolder}"
   ],
   "clangd.arguments": [
-    // "--compile-commands-dir=${workspaceFolder}/out",
     // 在后台自动分析文件（基于complie_commands)
     "--background-index",
     // 标记compelie_commands.json文件的目录位置
-    "--compile-commands-dir=out",
+    "--compile-commands-dir=${workspaceFolder}/build",
     // 同时开启的任务数量
     "-j=12",
     // 全局补全（会自动补充头文件）
@@ -198,6 +197,7 @@
     "--pretty",
     "--clang-tidy",
     "--query-driver=clang++",
+    "--clang-tidy-checks=-*,-google-readability-namespace-comments"
   ],
   "C_Cpp.codeAnalysis.updateDelay": 1000,
   "terminal.integrated.defaultProfile.windows": "MINGW64 / MSYS2",
@@ -207,4 +207,5 @@
     "C:/msys64/mingw64/include/**",
   ],
   "clangd.path": "clangd",
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
 }

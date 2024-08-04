@@ -15,6 +15,9 @@
 ########################
 
 //Path to a program.
+CLANG_TIDY_EXE:FILEPATH=C:/msys64/mingw64/bin/clang-tidy.exe
+
+//Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=C:/msys64/mingw64/bin/addr2line.exe
 
 //Path to a program.
@@ -81,7 +84,7 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=C:/Users/D1mo/Desktop/winclangcpp/build/
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/test
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/MyProject
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/msys64/mingw64/bin/ld.exe
@@ -125,10 +128,10 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=test
+CMAKE_PROJECT_NAME:STATIC=MyProject
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.0.0.0
+CMAKE_PROJECT_VERSION:STATIC=1.0
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
@@ -137,10 +140,10 @@ CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
 CMAKE_PROJECT_VERSION_MINOR:STATIC=0
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+CMAKE_PROJECT_VERSION_PATCH:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_TWEAK:STATIC=0
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/msys64/mingw64/bin/ranlib.exe
@@ -226,13 +229,13 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-test_BINARY_DIR:STATIC=C:/Users/D1mo/Desktop/winclangcpp/build
+MyProject_BINARY_DIR:STATIC=C:/Users/D1mo/Desktop/winclangcpp/build
 
 //Value Computed by CMake
-test_IS_TOP_LEVEL:STATIC=ON
+MyProject_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-test_SOURCE_DIR:STATIC=C:/Users/D1mo/Desktop/winclangcpp
+MyProject_SOURCE_DIR:STATIC=C:/Users/D1mo/Desktop/winclangcpp
 
 
 ########################

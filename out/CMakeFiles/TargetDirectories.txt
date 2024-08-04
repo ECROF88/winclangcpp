@@ -1,3 +1,0 @@
-C:/Users/D1mo/Desktop/winclangcpp/out/CMakeFiles/MyExecutable.dir
-C:/Users/D1mo/Desktop/winclangcpp/out/CMakeFiles/edit_cache.dir
-C:/Users/D1mo/Desktop/winclangcpp/out/CMakeFiles/rebuild_cache.dir

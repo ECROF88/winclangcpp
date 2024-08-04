@@ -11,10 +11,7 @@
 	"dir-top-src" : "C:/Users/D1mo/Desktop/winclangcpp",
 	"exports" : [],
 	"forward-modules-from-target-dirs" : [],
-	"include-dirs" : 
-	[
-		"."
-	],
+	"include-dirs" : [],
 	"language" : "CXX",
 	"linked-target-dirs" : [],
 	"module-dir" : "C:/Users/D1mo/Desktop/winclangcpp/build/CMakeFiles/MyExecutable.dir"

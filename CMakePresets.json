@@ -6,11 +6,25 @@
       "displayName": "Clang 18.1.8 x86_64-w64-windows-gnu (mingw64)",
       "description": "使用编译器: C = C:\\msys64\\mingw64\\bin\\clang.exe, CXX = C:\\msys64\\mingw64\\bin\\clang++.exe",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/out",
+      "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
         "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/clang.exe",
         "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/clang++.exe",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_CLANG_TIDY": "clang-tidy;-checks=-*"
+      }
+    },
+    {
+      "name": "Clang 18.1.8 x86_64-w64-windows-gnu (clang64)",
+      "displayName": "Clang 18.1.8 x86_64-w64-windows-gnu (clang64)",
+      "description": "使用编译器: C = C:\\msys64\\clang64\\bin\\clang.exe, CXX = C:\\msys64\\clang64\\bin\\clang++.exe",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/clangout",
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+        "CMAKE_C_COMPILER": "C:/msys64/clang64/bin/clang.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/clang64/bin/clang++.exe",
         "CMAKE_BUILD_TYPE": "Debug"
       }
     }
