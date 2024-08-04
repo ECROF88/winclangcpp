@@ -1,7 +1,0 @@
-# ninja log v6
-12	192	7444617546352460	CMakeFiles/MyExecutable.dir/src/main.cpp.obj.ddi	4ef4f79ebf4d7d73
-193	224	7444617548418532	CMakeFiles/MyExecutable.dir/CXX.dd	830ac764ce5a2e9a
-193	224	7444617548418532	C:/Users/D1mo/Desktop/winclangcpp/build/CMakeFiles/MyExecutable.dir/CXXModules.json	830ac764ce5a2e9a
-193	224	7444617548418532	CMakeFiles/MyExecutable.dir/src/main.cpp.obj.modmap	830ac764ce5a2e9a
-225	998	7444617548478546	CMakeFiles/MyExecutable.dir/src/main.cpp.obj	9e8a72d636f17b58
-1001	1102	7444617556237741	test.exe	294c72486d289777

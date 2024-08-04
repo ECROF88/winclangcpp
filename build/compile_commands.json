@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/Users/D1mo/Desktop/winclangcpp/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -std=c++23 -fmodules-ts -fmodule-mapper=CMakeFiles\\MyExecutable.dir\\src\\main.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\MyExecutable.dir\\src\\main.cpp.obj -c C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\main.cpp",
-  "file": "C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\main.cpp",
-  "output": "CMakeFiles\\MyExecutable.dir\\src\\main.cpp.obj"
-}
-]
