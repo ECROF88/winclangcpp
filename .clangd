@@ -9,11 +9,5 @@ CompileFlags:
   -mskip-rax-setup, -mpreferred-stack-boundary=3, -mno-fp-ret-in-387 ]
   Add: [-IC:/msys64/mingw64/include/,-isystem,-std=c++23]
 
-# InlayHints:
-#   BlockEnd: No
-#   Designators: Yes
-#   Enabled: Yes
-#   ParameterNames: Yes
-#   DeducedTypes: Yes
-#   TypeNameLimit: 24
+
 
