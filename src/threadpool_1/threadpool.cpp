@@ -37,7 +37,7 @@ ThreadPool::~ThreadPool()
   for (auto& it : worker_map) {
     thread& t = it.second;
     if (t.joinable()) {
-      cout << "******** 线程 " << t.get_id() << " 将要退出了..." << endl;
+      cout << "(析构) 线程 " << t.get_id() << " 将要退出了..." << endl;
       t.join();
     }
   }
@@ -67,20 +67,18 @@ void ThreadPool::manager()
       condition.notify_all();
       std::lock_guard<std::mutex> locker(exit_thread_mux);
       for (auto id : exit_thread_v) {
-        // std::cout << "id: " << id << std::endl;
         auto it = worker_map.find(id);
         if (it != worker_map.end()) {
+          std::cout << "线程被管理销毁 id=" << it->first << std::endl;
           it->second.join();  // 等待线程结束
           worker_map.erase(it);
-          //   std::cout << "线程退出 id=" << it->first << std::endl;
         }
       }
       exit_thread_v.clear();
     } else if (idle == 0 && cur < max_Thread) {
       // 增加线程
       thread t(&ThreadPool::worker, this);
-      //   worker_threads.push_back(std::move(t));
-      std::cout << "增加线程 id=" << t.get_id() << std::endl;
+      std::cout << "管理增加线程 id=" << t.get_id() << std::endl;
       worker_map.insert(std::make_pair(t.get_id(), std::move(t)));
       current_Thread++;
       idle_Thread++;
@@ -104,18 +102,19 @@ void ThreadPool::worker()
         condition.wait(locker);  // 加锁，阻塞
         // 空闲线程太多，需要退出线程
         if (exit_thread.load() > 0) {
-          exit_thread--;
-          std::cout << "线程退出 id=" << this_thread::get_id() << std::endl;
-          current_Thread--;
-          // 需要加锁，锁的目的是保证exit_thread_v操作安全
           std::lock_guard<std::mutex> locker(exit_thread_mux);
           exit_thread_v.push_back(this_thread::get_id());
+          std::cout << "-- 线程任务结束, ID=" << this_thread::get_id() << std::endl;
+          exit_thread--;
+          current_Thread--;
+          idle_Thread--;
+          // 需要加锁，锁的目的是保证exit_thread_v操作安全
           return;
           // 之后locker就会析构了
         }
       }
       if (!tasks.empty() && !stop) {
-        std::cout << "取出任务.." << std::endl;
+        // std::cout << "取出任务.." << std::endl;
         task = std::move(tasks.front());  // 取出任务
         tasks.pop();
       }
@@ -170,8 +169,8 @@ struct Task {
 // main:
 int main()
 {
-  ThreadPool pool(4, 10);
-  for (int i = 0; i < 20; i++) {
+  ThreadPool pool(2, 8);
+  for (int i = 0; i < 10; i++) {
     Task a_task(i);
     if (i % 2 == 0) {
       a_task.task = std::bind(clac, i, i * 2);
@@ -184,14 +183,14 @@ int main()
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
   std::this_thread::sleep_for(std::chrono::seconds(6));
-  for (int i = 0; i < 100; i++) {
-    Task b_task(i);
-    if (i % 2 == 0) {
-      b_task.task = std::bind(clac, i, i * 2);
-    } else {
-      b_task.task = std::bind(multiple, i, i * 2);
-    }
-    pool.addTask(mybind(b_task, b_task.task));
-  }
+  //   for (int i = 0; i < 10; i++) {
+  //     Task b_task(i);
+  //     if (i % 2 == 0) {
+  //       b_task.task = std::bind(clac, i, i * 2);
+  //     } else {
+  //       b_task.task = std::bind(multiple, i, i * 2);
+  //     }
+  //     pool.addTask(mybind(b_task, b_task.task));
+  //   }
   getchar();  // 等待线程结束
 }
