@@ -15,7 +15,7 @@ message(STATUS "C++ Compiler Version: ${CMAKE_CXX_COMPILER_VERSION}")
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 # 查找 clang-tidy
-find_program(CLANG_TIDY_EXE NAMES "clang-tidy" REQUIRED)
+# find_program(CLANG_TIDY_EXE NAMES "clang-tidy" REQUIRED)
 
 
 # find_package(LLVM REQUIRED CONFIG)

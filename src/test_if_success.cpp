@@ -3,12 +3,10 @@
 #include <print>
 #include <string>
 #include <vector>
-int pp(int a) { return a; }
+
 int main()
 {
-  std::cout << "3 + 1 = " << std::endl;
   std::cout << "C++ Standard: " << __cplusplus << std::endl;
-
 // 判断并输出编译器信息
 #ifdef __clang__
   std::cout << "Compiler: Clang" << std::endl;
