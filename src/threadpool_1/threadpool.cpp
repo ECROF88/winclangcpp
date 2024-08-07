@@ -11,9 +11,7 @@
 template <class Self, class Fn>
 auto mybind(Self self, Fn&& fn, auto... args)
 {
-  return [self = std::move(self), fn = std::forward<Fn>(fn), args...](auto... params) {
-    fn(args...);
-  };
+  return [self = std::move(self), fn, args...](auto... params) { fn(args...); };
 }
 
 ThreadPool::ThreadPool(int min, int max)
@@ -26,7 +24,6 @@ ThreadPool::ThreadPool(int min, int max)
   // 初始化工作线程
   for (int i = 0; i < min; i++) {
     thread t(&ThreadPool::worker, this);
-    // worker_threads.push_back(std::move(t));
     worker_map.insert(std::make_pair(t.get_id(), std::move(t)));
   }
 }
@@ -39,11 +36,14 @@ ThreadPool::~ThreadPool()
     if (t.joinable()) {
       cout << "(析构) 线程 " << t.get_id() << " 将要退出了..." << endl;
       t.join();
+    } else {
+      cout << "线程不可join" << endl;
     }
   }
   if (manager_thread->joinable()) {
     manager_thread->join();
   }
+  std::cout << "manager died" << std::endl;
   delete manager_thread;
 }
 
@@ -56,7 +56,7 @@ void ThreadPool::manager()
     // 2. 当空闲线程数大于最小线程数时，减少线程
     // 3. 当线程数大于最大线程数时，减少线程
     // 4. 当线程数小于最小线程数时，增加线程
-    this_thread::sleep_for(chrono::milliseconds(300));
+    this_thread::sleep_for(chrono::milliseconds(10));
     // std::cout << "manager_thread: " << std::this_thread::get_id() << std::endl;
     int idle = idle_Thread.load();
     int cur = current_Thread.load();
@@ -75,7 +75,7 @@ void ThreadPool::manager()
         }
       }
       exit_thread_v.clear();
-    } else if (idle == 0 && cur < max_Thread) {
+    } else if (idle == 0 && cur < max_Thread && !stop.load()) {
       // 增加线程
       thread t(&ThreadPool::worker, this);
       std::cout << "管理增加线程 id=" << t.get_id() << std::endl;
@@ -88,7 +88,7 @@ void ThreadPool::manager()
 void ThreadPool::worker()
 {
   while (!stop.load()) {
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
     // 工作线程
     // 从任务队列执行任务 若队列为空则阻塞
     // 还要进行线程同步（互斥锁）
@@ -169,7 +169,7 @@ struct Task {
 // main:
 int main()
 {
-  ThreadPool pool(2, 8);
+  ThreadPool pool(4, 8);
   for (int i = 0; i < 10; i++) {
     Task a_task(i);
     if (i % 2 == 0) {
@@ -180,17 +180,17 @@ int main()
     // std::function<void()> obj = std::bind(clac, i, i * 2);
     // std::function<void()> obj = mybind(a_task, a_task.task);
     pool.addTask(mybind(a_task, a_task.task));
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    std::this_thread::sleep_for(std::chrono::milliseconds(1));
   }
-  std::this_thread::sleep_for(std::chrono::seconds(6));
-  //   for (int i = 0; i < 10; i++) {
-  //     Task b_task(i);
-  //     if (i % 2 == 0) {
-  //       b_task.task = std::bind(clac, i, i * 2);
-  //     } else {
-  //       b_task.task = std::bind(multiple, i, i * 2);
-  //     }
-  //     pool.addTask(mybind(b_task, b_task.task));
-  //   }
+  std::this_thread::sleep_for(std::chrono::seconds(4));
+  for (int i = 0; i < 10; i++) {
+    Task b_task(i);
+    if (i % 2 == 0) {
+      b_task.task = std::bind(clac, i, i * 2);
+    } else {
+      b_task.task = std::bind(multiple, i, i * 2);
+    }
+    pool.addTask(mybind(b_task, b_task.task));
+  }
   getchar();  // 等待线程结束
 }

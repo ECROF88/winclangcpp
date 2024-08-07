@@ -1,8 +1,6 @@
 // main.cpp
 #include <iostream>
 #include <print>
-#include <string>
-#include <vector>
 
 int main()
 {
