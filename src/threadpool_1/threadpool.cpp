@@ -167,30 +167,47 @@ struct Task {
   Task(int i) : task_id{i} {}
 };
 // main:
-int main()
-{
-  ThreadPool pool(4, 8);
-  for (int i = 0; i < 10; i++) {
-    Task a_task(i);
-    if (i % 2 == 0) {
-      a_task.task = std::bind(clac, i, i * 2);
-    } else {
-      a_task.task = std::bind(multiple, i, i * 2);
-    }
-    // std::function<void()> obj = std::bind(clac, i, i * 2);
-    // std::function<void()> obj = mybind(a_task, a_task.task);
-    pool.addTask(mybind(a_task, a_task.task));
-    std::this_thread::sleep_for(std::chrono::milliseconds(1));
-  }
-  std::this_thread::sleep_for(std::chrono::seconds(4));
-  for (int i = 0; i < 10; i++) {
-    Task b_task(i);
-    if (i % 2 == 0) {
-      b_task.task = std::bind(clac, i, i * 2);
-    } else {
-      b_task.task = std::bind(multiple, i, i * 2);
-    }
-    pool.addTask(mybind(b_task, b_task.task));
-  }
-  getchar();  // 等待线程结束
-}
+// int main()
+// {
+//   ThreadPool pool(4, 8);
+//   for (int i = 0; i < 10; i++) {
+//     Task a_task(i);
+//     if (i % 2 == 0) {
+//       a_task.task = std::bind(clac, i, i * 2);
+//     } else {
+//       a_task.task = std::bind(multiple, i, i * 2);
+//     }
+//     // std::function<void()> obj = std::bind(clac, i, i * 2);
+//     // std::function<void()> obj = mybind(a_task, a_task.task);
+//     pool.addTask(mybind(a_task, a_task.task));
+//     std::this_thread::sleep_for(std::chrono::milliseconds(1));
+//   }
+//   std::this_thread::sleep_for(std::chrono::seconds(4));
+//   for (int i = 0; i < 10; i++) {
+//     Task b_task(i);
+//     if (i % 2 == 0) {
+//       b_task.task = std::bind(clac, i, i * 2);
+//     } else {
+//       b_task.task = std::bind(multiple, i, i * 2);
+//     }
+//     pool.addTask(mybind(b_task, b_task.task));
+//   }
+//   getchar();  // 等待线程结束
+// }
+// struct S {
+//   int value;
+//   S(int v) : value(v) {}
+//   void print() { std::cout << "value: " << value << std::endl; }
+// };
+
+// int main()
+// {
+//   ThreadPool pool(2, 8);
+//   for (int i = 0; i < 100; i++) {
+//     this_thread::sleep_for(chrono::milliseconds(100));
+//     pool.addTask([]() {
+//       S s(1);
+//       s.print();
+//     });
+//   }
+// }

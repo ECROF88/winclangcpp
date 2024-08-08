@@ -1,0 +1,18 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "Clang",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "C:/Users/D1mo/Desktop/winclangcpp/clangout",
+	"dir-cur-src" : "C:/Users/D1mo/Desktop/winclangcpp",
+	"dir-top-bld" : "C:/Users/D1mo/Desktop/winclangcpp/clangout",
+	"dir-top-src" : "C:/Users/D1mo/Desktop/winclangcpp",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Users/D1mo/Desktop/winclangcpp/clangout/CMakeFiles/MyExecutable.dir"
+}

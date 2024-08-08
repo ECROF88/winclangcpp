@@ -13,11 +13,10 @@ int lengthofLIS(std::vector<int> nums)
       if (nums[i] > nums[j]) {
         dp[i] = max(dp[i], dp[j] + 1);
       }
-      //   if (dp[i] > max_len) max_len = dp[i];
+      if (dp[i] > max_len) max_len = dp[i];
     }
   }
-  for (int i = 0; i < nums.size(); i++)
-    if (dp[i] > max_len) max_len = dp[i];
+
   return max_len;
 }
 // method 2 using binary search

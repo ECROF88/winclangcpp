@@ -1,0 +1,38 @@
+[
+{
+  "directory": "C:/Users/D1mo/Desktop/winclangcpp/clangout",
+  "command": "C:\\msys64\\clang64\\bin\\clang++.exe -g -std=c++23 @CMakeFiles\\MyExecutable.dir\\src\\LC\\300.cpp.obj.modmap -o CMakeFiles\\MyExecutable.dir\\src\\LC\\300.cpp.obj -c C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\LC\\300.cpp",
+  "file": "C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\LC\\300.cpp",
+  "output": "CMakeFiles\\MyExecutable.dir\\src\\LC\\300.cpp.obj"
+},
+{
+  "directory": "C:/Users/D1mo/Desktop/winclangcpp/clangout",
+  "command": "C:\\msys64\\clang64\\bin\\clang++.exe -g -std=c++23 @CMakeFiles\\MyExecutable.dir\\src\\LR\\1.cpp.obj.modmap -o CMakeFiles\\MyExecutable.dir\\src\\LR\\1.cpp.obj -c C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\LR\\1.cpp",
+  "file": "C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\LR\\1.cpp",
+  "output": "CMakeFiles\\MyExecutable.dir\\src\\LR\\1.cpp.obj"
+},
+{
+  "directory": "C:/Users/D1mo/Desktop/winclangcpp/clangout",
+  "command": "C:\\msys64\\clang64\\bin\\clang++.exe -g -std=c++23 @CMakeFiles\\MyExecutable.dir\\src\\LR\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp.obj.modmap -o CMakeFiles\\MyExecutable.dir\\src\\LR\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp.obj -c C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\LR\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp",
+  "file": "C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\LR\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp",
+  "output": "CMakeFiles\\MyExecutable.dir\\src\\LR\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp.obj"
+},
+{
+  "directory": "C:/Users/D1mo/Desktop/winclangcpp/clangout",
+  "command": "C:\\msys64\\clang64\\bin\\clang++.exe -g -std=c++23 @CMakeFiles\\MyExecutable.dir\\src\\test_if_success.cpp.obj.modmap -o CMakeFiles\\MyExecutable.dir\\src\\test_if_success.cpp.obj -c C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\test_if_success.cpp",
+  "file": "C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\test_if_success.cpp",
+  "output": "CMakeFiles\\MyExecutable.dir\\src\\test_if_success.cpp.obj"
+},
+{
+  "directory": "C:/Users/D1mo/Desktop/winclangcpp/clangout",
+  "command": "C:\\msys64\\clang64\\bin\\clang++.exe -g -std=c++23 @CMakeFiles\\MyExecutable.dir\\src\\threadpool_1\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp.obj.modmap -o CMakeFiles\\MyExecutable.dir\\src\\threadpool_1\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp.obj -c C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\threadpool_1\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp",
+  "file": "C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\threadpool_1\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp",
+  "output": "CMakeFiles\\MyExecutable.dir\\src\\threadpool_1\\build\\CMakeFiles\\3.30.1\\CompilerIdCXX\\CMakeCXXCompilerId.cpp.obj"
+},
+{
+  "directory": "C:/Users/D1mo/Desktop/winclangcpp/clangout",
+  "command": "C:\\msys64\\clang64\\bin\\clang++.exe -g -std=c++23 @CMakeFiles\\MyExecutable.dir\\src\\threadpool_1\\threadpool.cpp.obj.modmap -o CMakeFiles\\MyExecutable.dir\\src\\threadpool_1\\threadpool.cpp.obj -c C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\threadpool_1\\threadpool.cpp",
+  "file": "C:\\Users\\D1mo\\Desktop\\winclangcpp\\src\\threadpool_1\\threadpool.cpp",
+  "output": "CMakeFiles\\MyExecutable.dir\\src\\threadpool_1\\threadpool.cpp.obj"
+}
+]
