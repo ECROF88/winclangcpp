@@ -22,13 +22,6 @@ message(STATUS "C++ Compiler Version: ${CMAKE_CXX_COMPILER_VERSION}")
 # 设置 clang-tidy 命令，过滤掉不支持的选项
 # set(CLANG_TIDY_COMMAND "${CLANG_TIDY_EXE}" "-checks=-*,modernize-*")
 
-# # 添加一个自定义目标来运行 clang-tidy
-# add_custom_target(
-#   run_clang_tidy
-#   COMMAND ${CLANG_TIDY_COMMAND} -header-filter=.* -system-headers --extra-arg-before=--driver-mode=clang++
-#   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-# )
-
 file(GLOB_RECURSE SRC_FILES "src/*.cpp")
 # 添加可执行文件
 add_executable(MyExecutable ${SRC_FILES})
