@@ -35,19 +35,6 @@ struct C {
 };
 // 指向显式对象成员函数的指针是普通函数指针
 
-struct D {
- public:
-  int* data;
-  D() : data(new int[10])
-  {
-    // 初始化全0：
-    memset(data, 0, 10 * sizeof(int));
-  };
-  auto operator[](this auto&& self, size_t t) -> decltype(auto)
-  {
-    return std::forward_like<decltype(self)>((self).data[t]);
-  }
-};
 auto fff() {}
 auto main() -> int
 {
@@ -60,7 +47,4 @@ auto main() -> int
   cc.foo();            // const c&
   c.foo();             // c&
   std::move(c).foo();  // c&&
-  D d;
-  std::cout << d.operator[](0);  // 是const int &&
-  return 0;
 }
