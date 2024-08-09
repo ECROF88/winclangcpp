@@ -19,16 +19,17 @@ struct A : inc_op {
   A(int i, int j) : value(i), value2(j) {}
   auto inc()
   {
+    value2 += 1;
     value++;
     return *this;
   }
 };
 auto main() -> int
 {
-  A a = {1, 2};
+  A a = {100, 200};
   a++;
   ++std::move(a);
-  std::cout << a.value << a.value2 << std::endl;
+  std::cout << a.value << '\n' << a.value2 << std::endl;
   // 简化递归lamda：以斐波那契数列为例
   auto fib = [](this auto&& self, int n) -> int {
     if (n < 2) return 1;
