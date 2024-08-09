@@ -4,7 +4,7 @@
 #include <mutex>
 #include <print>
 
-#include "../threadpool_1/threadpool.h"
+#include "../threadpool_1/threadpool.h"  // 使用自己的线程池来测试单例获取
 
 // 单例
 struct S;
@@ -43,7 +43,7 @@ std::atomic<S*> S::instance{nullptr};
 std::mutex S::isInit;
 int S::value = 0;
 
-int main()
+auto main() -> int
 {
   ThreadPool pool(4, 8);
 
