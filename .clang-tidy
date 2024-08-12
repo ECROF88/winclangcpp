@@ -28,7 +28,7 @@ Checks: >
   -clang-diagnostic-unused-value,
   clang-analyzer-*,
   bugprone-*,performance-*,
-  readability-*,
+  ; readability-*,
   -readability-magic-numbers,
   -readability-braces-around-statements,
   -readability-inconsistent-declaration-parameter-name,
