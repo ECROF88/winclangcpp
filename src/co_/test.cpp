@@ -35,7 +35,7 @@ class Task
     T current_value;
     std::suspend_always yield_value(int value)
     {
-      current_value = value;
+      current_value = std::move(value);
       return {};
     }
     auto get_return_object() { return Task{TaskHandle::from_promise(*this)}; }
