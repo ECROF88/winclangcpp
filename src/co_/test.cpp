@@ -4,7 +4,7 @@
 #include <iterator>
 #include <print>
 #include <ranges>
-#include <type_traits>
+
 template <typename T>
 class Task
 {
@@ -80,33 +80,55 @@ struct frame {
   int b;
   int c;
   size_t state;
+  bool ready = true;
+  std::exception_ptr eptr;
   int resume()
   {
-    switch (state) {
-      case 0:
-        state = 1;
-        goto s0;
-      case 1:
-        state = 2;
-        goto s1;
-      case 2:
-        goto s2;
-    }
-  s0:
-    a = b = 1;
-    return a;
-  s1:
-    return b;
-  s2:
-    while (true) {
-      c = a + b;
-      a = b;
-      b = c;
-      return c;
+    try {
+      switch (state) {
+        case 0:
+          state = 1;
+          goto s0;
+        case 1:
+          state = 2;
+          goto s1;
+        case 2:
+          goto s2;
+      }
+    s0:
+      a = b = 1;
+      return a;
+    s1:
+      return b;
+    s2:
+      while (true) {
+        c = a + b;
+        a = b;
+        b = c;
+        return c;
+      }
+    } catch (...) {
+      this->eptr = std::current_exception();
+      return -1;
     }
   }
 };
-
+/*
+暂停之后只能return的协程叫做非对称协程
+协程之间有明确的父子关系
+特征：调度器干预所有的调度
+*/
+/*
+解决方法：转移执行权：switch to
+对称式协程，协程之间地位相等
+比较灵活，难以debug
+*/
+/*
+无栈协程：用结构体存放协程的状态，不同的协程用不同的结构体
+典型：aysnc和await，promise的语法糖。显式暂停，内存紧凑，定制结构体，深递归慢。
+有栈协程：给个容量很大栈内存，什么都放
+没有aysnc和await。隐蔽暂停，浪费内存和栈，深递归较快。
+*/
 int main()
 {
   Task co = hello(5);
