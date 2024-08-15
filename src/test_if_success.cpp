@@ -20,5 +20,11 @@ int main()
 #else
   std::cout << "Unknown Compiler" << std::endl;
 #endif
+
+#if __cplusplus >= 202002L
+  std::cout << "C++23 or newer is supported.\n";
+#else
+  std::cout << "C++23 is not supported.\n";
+#endif
   return 0;
 }
