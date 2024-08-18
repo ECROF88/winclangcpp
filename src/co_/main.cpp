@@ -131,9 +131,10 @@ struct WorldTask {
       return mCoroutine;
     }
     // void await_resume() const noexcept {}
-    auto await_resume() const noexcept
+    auto await_resume() const noexcept  // 调用co_await时，会调用await_resume
     {
       return mCoroutine.promise().mRetValue;
+      //   return Awaiter{mCoroutine};
     }  // co_await的返回值
     std::coroutine_handle<promise_type> mCoroutine;
   };
