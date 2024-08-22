@@ -1,5 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
+#include <functional>
+#include <iostream>
 #include <memory>
 
 // struct Resource {
@@ -87,6 +89,35 @@ struct Resource::Impl {
 Resource::Resource() : impl(std::make_unique<Impl>()) {}
 Resource::~Resource() = default;
 void Resource::speak() { impl->speak(); }
+
+struct Finally {
+  std::function<void()> onExit;
+  bool valid;
+  explicit Finally(std::function<void()> onExit) : onExit(onExit), valid(true) {}
+  Finally(Finally &&that) noexcept : onExit(std::move(that.onExit)), valid(that.valid)
+  {
+    puts("move");
+    that.valid = false;
+  }
+  ~Finally()
+  {
+    if (valid)  // 判断是否已经被移动
+      onExit();
+    else {
+      puts("避免了一次回调");
+    }
+  }
+};
+auto ffff()
+{
+  auto cb = std::make_shared<Finally>([] { puts("finally"); });
+  return cb;
+}
+Finally ffff2()
+{
+  Finally cb([] { puts("finally2"); });
+  return std::move(cb);
+}
 int main()
 {
   auto r = Resource();
@@ -96,5 +127,11 @@ int main()
   r.speak();
   //   proc(p);
   //   fun(r);
+  auto sp = std::make_shared<int>();
+  auto pp = sp.get();
+  //   Finally callback([] { puts("finally"); });
+  //   auto cb = ffff();
+  auto cb2 = ffff2();
+  puts("main()");
   return 0;
 }
