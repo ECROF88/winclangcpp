@@ -1,8 +1,6 @@
 CompileFlags:
   Remove: 
-  [-fmodule-mapper=CMakeFiles\MyExecutable.dir\src\main.cpp.obj.modmap,
-  -fdeps-target=CMakeFiles\MyExecutable.dir\src\main.cpp.obj,
-  -fdeps-file=CMakeFiles\MyExecutable.dir\src\main.cpp.obj.ddi,
+  [
   -fdeps-format=p1689r5,-fmodules-ts,-mno-direct-extern-access, 
   -fconserve-stack, -fno-allow-store-data-races, -mfunction-return=thunk-extern,
   -mindirect-branch-cs-prefix, -mindirect-branch-register, -mindirect-branch=thunk-extern, 

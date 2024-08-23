@@ -32,9 +32,9 @@
 
 //  public:
 //   Resource() : self_(std::make_shared<Self>()) {}
-//   //   Resource(Resource const &that) { self_ = std::make_shared<self>(*that.self_); }
-//   Resource(Resource const &) = default;
-//   Resource clone() const { return std::make_shared<Self>(*self_); }
+//   //   Resource(Resource const &that) { self_ =
+//   std::make_shared<self>(*that.self_); } Resource(Resource const &) =
+//   default; Resource clone() const { return std::make_shared<Self>(*self_); }
 //   void speak() const
 //   {
 //     printf("Resource::speak() %p\n", self_->p);
@@ -94,8 +94,10 @@ struct Finally {
   Callback onExit;
   //   std::function<void()> onExit;
   bool valid;
+  Finally() : valid(false) {}
   explicit Finally(Callback onExit) : onExit(onExit), valid(true) {}
-  Finally(Finally &&that) noexcept : onExit(std::move(that.onExit)), valid(that.valid)
+  Finally(Finally &&that) noexcept
+      : onExit(std::move(that.onExit)), valid(that.valid)
   {
     puts("move");
     that.valid = false;
@@ -103,7 +105,7 @@ struct Finally {
   // 移动赋值函数：
   Finally &operator=(Finally &&that) noexcept
   {
-    if (this != &that) {
+    if (this != &that) {  // 避免自赋值
       if (valid) {
         onExit();
       }
@@ -120,6 +122,13 @@ struct Finally {
     else {
       puts("避免了一次回调");
     }
+  }
+
+  void cancel() { valid = false; }
+  void trigger()
+  {
+    if (valid) onExit();
+    valid = false;
   }
 };
 // auto ffff()
@@ -138,7 +147,7 @@ Finally(Callback) -> Finally<Callback>;
 
 auto ffff3()
 {
-  auto f = [] { puts("finally3"); };
+  //   auto f = [] { puts("finally3"); };
   // Finally<decltype(f)> cb1(f);
   //   Finally cb(f);
   Finally cb2([] { puts("finally4"); });
@@ -149,15 +158,26 @@ int main()
   auto r = Resource();
 
   auto p = std::shared_ptr<FILE>(fopen("test.txt", "r"), fclose);
-  //   auto p2 = std::unique_ptr<FILE, std::default_delete<FILE>>(fopen("test.txt", "r"));
+  //   auto p2 = std::unique_ptr<FILE,
+  //   std::default_delete<FILE>>(fopen("test.txt", "r"));
   r.speak();
   //   proc(p);
   //   fun(r);
   auto sp = std::make_shared<int>();
   auto pp = sp.get();
-  //   Finally callback([] { puts("finally"); });
+  Finally callback([] { puts("finally"); });
+  callback.trigger();
   //   auto cb = ffff();
-  auto cb2 = ffff3();
+  //   auto cb2 = ffff3();
   puts("main()");
+
+  // 构造一个空的Finally：
+  auto cb3 = ffff3();
+  cb3 = decltype(cb3)();
+  puts("main 返回");
+  if (0) {
+    return -1;
+  }
+  callback.cancel();
   return 0;
 }
