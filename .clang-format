@@ -1,6 +1,6 @@
 BasedOnStyle: Google
 IndentWidth: 2
-ColumnLimit: 80
+ColumnLimit: 100
 BreakBeforeBraces: Custom
 
 
@@ -8,5 +8,7 @@ BreakBeforeBraces: Custom
 BraceWrapping:
   AfterEnum: true
   SplitEmptyFunction: false
-  AfterFunction: true
+  # AfterFunction: true
   AfterClass: true
+
+AllowShortFunctionsOnASingleLine: false

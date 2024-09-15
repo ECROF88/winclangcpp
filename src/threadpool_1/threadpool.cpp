@@ -9,14 +9,12 @@
 #include <thread>
 #include <utility>
 template <class Self, class Fn>
-auto mybind(Self self, Fn&& fn, auto... args)
-{
+auto mybind(Self self, Fn&& fn, auto... args) {
   return [self = std::move(self), fn, args...](auto... params) { fn(args...); };
 }
 
 ThreadPool::ThreadPool(int min, int max)
-    : max_Thread(max), min_Thread(min), current_Thread(min), idle_Thread(min), stop(false)
-{
+    : max_Thread(max), min_Thread(min), current_Thread(min), idle_Thread(min), stop(false) {
   // 初始化线程池
   idle_Thread = current_Thread = min;
   manager_thread = new thread(&ThreadPool::manager, this);
@@ -27,8 +25,7 @@ ThreadPool::ThreadPool(int min, int max)
     worker_map.insert(std::make_pair(t.get_id(), std::move(t)));
   }
 }
-ThreadPool::~ThreadPool()
-{
+ThreadPool::~ThreadPool() {
   stop = true;
   condition.notify_all();
   for (auto& it : worker_map) {
@@ -47,8 +44,7 @@ ThreadPool::~ThreadPool()
   delete manager_thread;
 }
 
-void ThreadPool::manager()
-{
+void ThreadPool::manager() {
   while (!stop.load()) {
     // 管理者线程
     // 调节线程数量
@@ -85,8 +81,7 @@ void ThreadPool::manager()
     }
   }
 }
-void ThreadPool::worker()
-{
+void ThreadPool::worker() {
   while (!stop.load()) {
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
     // 工作线程
@@ -126,8 +121,7 @@ void ThreadPool::worker()
     }
   }
 }
-void ThreadPool::addTask(std::function<void(void)> task)
-{
+void ThreadPool::addTask(std::function<void(void)> task) {
   // 添加任务
   // 1. 将任务加入任务队列queuemux
   // 2. 唤醒工作线程
@@ -140,8 +134,7 @@ void ThreadPool::addTask(std::function<void(void)> task)
   condition.notify_one();
 }
 
-void clac(int x, int y)
-{
+void clac(int x, int y) {
   int z = x + y;
   // 随机休眠时间
   std::mt19937 mt(std::random_device{}());
@@ -151,8 +144,7 @@ void clac(int x, int y)
   std::this_thread::sleep_for(std::chrono::seconds(random_num));
   std::cout << z << "=" << x << "+" << y << std::endl;
 }
-void multiple(int x, int y)
-{
+void multiple(int x, int y) {
   int z = x * y;
   std::mt19937 mt(std::random_device{}());
   mt.seed();
@@ -164,36 +156,44 @@ void multiple(int x, int y)
 struct Task {
   int task_id;
   std::function<void()> task;
-  Task(int i) : task_id{i} {}
+  Task(int i) : task_id{i} {
+  }
 };
 // main:
-// int main()
-// {
-//   ThreadPool pool(4, 8);
-//   for (int i = 0; i < 10; i++) {
-//     Task a_task(i);
-//     if (i % 2 == 0) {
-//       a_task.task = std::bind(clac, i, i * 2);
-//     } else {
-//       a_task.task = std::bind(multiple, i, i * 2);
-//     }
-//     // std::function<void()> obj = std::bind(clac, i, i * 2);
-//     // std::function<void()> obj = mybind(a_task, a_task.task);
-//     pool.addTask(mybind(a_task, a_task.task));
-//     std::this_thread::sleep_for(std::chrono::milliseconds(1));
-//   }
-//   std::this_thread::sleep_for(std::chrono::seconds(4));
-//   for (int i = 0; i < 10; i++) {
-//     Task b_task(i);
-//     if (i % 2 == 0) {
-//       b_task.task = std::bind(clac, i, i * 2);
-//     } else {
-//       b_task.task = std::bind(multiple, i, i * 2);
-//     }
-//     pool.addTask(mybind(b_task, b_task.task));
-//   }
-//   getchar();  // 等待线程结束
-// }
+int main() {
+#ifdef _LIBCPP_VERSION
+  std::cout << "Using libc++ version " << _LIBCPP_VERSION << std::endl;
+#elif defined(__GLIBCXX__)
+  std::cout << "Using libstdc++" << std::endl;
+#else
+  std::cout << "Could not determine standard library" << std::endl;
+#endif
+
+  ThreadPool pool(4, 8);
+  for (int i = 0; i < 10; i++) {
+    Task a_task(i);
+    if (i % 2 == 0) {
+      a_task.task = std::bind(clac, i, i * 2);
+    } else {
+      a_task.task = std::bind(multiple, i, i * 2);
+    }
+    // std::function<void()> obj = std::bind(clac, i, i * 2);
+    // std::function<void()> obj = mybind(a_task, a_task.task);
+    pool.addTask(mybind(a_task, a_task.task));
+    std::this_thread::sleep_for(std::chrono::milliseconds(1));
+  }
+  std::this_thread::sleep_for(std::chrono::seconds(4));
+  for (int i = 0; i < 10; i++) {
+    Task b_task(i);
+    if (i % 2 == 0) {
+      b_task.task = std::bind(clac, i, i * 2);
+    } else {
+      b_task.task = std::bind(multiple, i, i * 2);
+    }
+    pool.addTask(mybind(b_task, b_task.task));
+  }
+  getchar();  // 等待线程结束
+}
 // struct S {
 //   int value;
 //   S(int v) : value(v) {}

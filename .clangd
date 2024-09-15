@@ -6,5 +6,5 @@ CompileFlags:
   -mindirect-branch-cs-prefix, -mindirect-branch-register, -mindirect-branch=thunk-extern, 
   -mskip-rax-setup, -mpreferred-stack-boundary=3, -mno-fp-ret-in-387 
   ]
-  Add: [-IC:/msys64/mingw64/include/,-std=c++23]
+  Add: [-IC:/msys64/mingw64/include/,-std=c++23,-stdlib=libc++]
   
